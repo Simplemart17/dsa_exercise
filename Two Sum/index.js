@@ -9,6 +9,8 @@
  * Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 */
 //Brute Force
+// Time Complexity: O(n^2)
+// Space Complexity: O(1)
 const twoSumA = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
@@ -23,6 +25,9 @@ const twoSumA = (nums, target) => {
 }
 
 //Hash Table (optimized)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
 const twoSumB = (nums, target) => {
   const hash = {};
 

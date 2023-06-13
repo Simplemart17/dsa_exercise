@@ -54,6 +54,29 @@ const twoSumB = (num, target) => {
   return [];
 }
 
+// Given an array num, define a running sum of an array as runningSum[i] = sum(num[0]...num[i]);
+// Constraints: 
+// - The number of nodes in the list is in the range [1, 1000]
+// - The value of each element in the array is in the range [-10^6, 10^6]
+// Input: num = [3, 1, 2, 10, 1]
+// Output: [3, 4, 6, 16, 17]
+const runningSum = (num) => {
+  // let result = [];
+  // let ans = num[0];
+  // for (let i =0; i < num.length; i++) {
+  //   result.push(ans);
+  //   ans = ans + num[i + 1]
+  // }
+  // return result;
+ 
+  // overriding the original array
+  for (let i = 1; i < num.length; i++) {
+    num[i] = num[i - 1] + num[i];
+  }
+
+  return num;
+}
+
 // // process logs
 // function processLogs(logs, threshold) {
 //   // Write your code here.
@@ -77,5 +100,6 @@ const twoSumB = (num, target) => {
 //   return result;
 // }
 
-console.log(twoSumA([2,7,11,15], 13));
-console.log(twoSumB([2,7,11,15], 13));
+// console.log(twoSumA([2,7,11,15], 13));
+// console.log(twoSumB([2,7,11,15], 13));
+console.log(runningSum([3, 1, 2, 10, 1]));

@@ -7,14 +7,18 @@ const findErrorNum = (num) => {
   let hashMap = {};
   const result = [];
 
+  // create an hashmap to count the occurrence of each number
   for (let i = 0; i < num.length; i++) {
     hashMap[num[i]] = hashMap[num[i]] ? hashMap[num[i]] + 1 : 1;
   }
 
+  // check the number with more than one occurrence, then push into another array
   for (let i = 0; i < num.length; i++) {
     if (hashMap[num[i]] === 2 && !result.includes(num[i])) {
       result.push(num[i]);
     }
+
+    // check if the subsequent number is present in the hashmap, if not, add it to the array
     if (hashMap[i + 1] === undefined) {
       result.push(i + 1);
     }
@@ -22,8 +26,10 @@ const findErrorNum = (num) => {
 
   if (hashMap[result[0]] === undefined) {
     [result[0], result[1]] = [result[1], result[0]];
+
     return [result[0], result[1]];
   } else {
+
     return result;
   }
 };
@@ -36,6 +42,7 @@ const findErrorNum1 = (num) => {
       result.push(num[i], num[i] + 1);
     }
   }
+
   return result;
 };
 

@@ -1,2 +1,2 @@
-# DSA_practise
+# DSA Exercises
 Solve questions on DSA

@@ -39,5 +39,36 @@ function decode(file) {
   return decoded;
 }
 
+// optimized solution
+function decode1(file) {
+  // read the file and parse it
+  const fileData = fs.readFileSync(file, "utf8", (_err, data) => data);
+  
+  let fileMap = {};
+  let decoded = "";
+
+  // map through the file data, splitting each element and creating a new file map
+  fileData.split("\n").map((data) => {
+    const [key, value] = data.trim().split(' ');
+    fileMap[key] = value;
+  });
+
+  let currIndex = 0;
+  
+  // create a pyramid from the file map object keys and map the last element in each row to the corresponding element in the file map
+  for (let i = 1; i <= Math.sqrt(2 * Object.keys(fileMap).length); i++) {
+    for (let j = 1; j <= i; j++) {
+      currIndex++;
+      
+      if (j === i) {
+        decoded += fileMap[currIndex] + " ";
+      }
+    }
+  }
+
+  return decoded;
+}
+
 const filePath = "DecodeFile/coding_qual_input.txt";
 console.log(decode(filePath));
+console.log(decode1(filePath));

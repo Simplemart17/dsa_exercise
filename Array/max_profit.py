@@ -36,11 +36,11 @@ def maxProfitBruteForce(prices):
 def maxProfitOptimized(prices):
   maxProfit = 0
   minPrice = prices[0]
-  for i in range(1, len(prices)):
-    if prices[i] < minPrice:
-      minPrice = prices[i]
+  for price in prices[1:]:
+    if price < minPrice:
+      minPrice = price
     else:
-      maxProfit = max(maxProfit, prices[i] - minPrice)
+      maxProfit = max(maxProfit, price - minPrice)
   return maxProfit
 
 print(maxProfitBruteForce([7,1,5,3,6,4]))

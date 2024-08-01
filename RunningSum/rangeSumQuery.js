@@ -48,7 +48,7 @@ NumArray.prototype.sumRange = function(left, right) {
   // sum[0,2] = runningSum[2] = 1
 
   // check if the left value is greater than 0
-  // if yes, subtract 1 from the value of the left and assign to left
+  // if yes, subtract 1 from the value of the left to find the index value from the runningSum array, then assign it to left
   // else assign 0 to left
   left = left > 0 ? this.runningSum[left - 1] : 0;
 
